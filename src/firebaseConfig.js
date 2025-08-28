@@ -4,14 +4,23 @@ import { getDatabase } from "firebase/database";
 
 // 🔹 Inserisci qui le tue credenziali Firebase
 const firebaseConfig = {
-  apiKey: "LA_TUA_API_KEY",
-  authDomain: "IL_TUO_PROJECT_ID.firebaseapp.com",
-  databaseURL: "https://IL_TUO_PROJECT_ID.firebaseio.com",
-  projectId: "IL_TUO_PROJECT_ID",
-  storageBucket: "IL_TUO_PROJECT_ID.appspot.com",
-  messagingSenderId: "IL_TUO_SENDER_ID",
-  appId: "IL_TUO_APP_ID"
+
+  apiKey: "AIzaSyBhIurUf6-cFTq9toA11V8ss8W80yXWA4c",
+
+  authDomain: "lista-posti.firebaseapp.com",
+
+  databaseURL: "https://lista-posti-default-rtdb.europe-west1.firebasedatabase.app",
+
+  projectId: "lista-posti",
+
+  storageBucket: "lista-posti.firebasestorage.app",
+
+  messagingSenderId: "205182260418",
+
+  appId: "1:205182260418:web:cf1d8b0e60727be1ac575b"
+
 };
+
 
 // 🔹 Inizializza Firebase
 const app = initializeApp(firebaseConfig);
