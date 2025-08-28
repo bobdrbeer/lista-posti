@@ -116,5 +116,3 @@ function App() {
 }
 
 export default App;
-import { database } from "./firebaseConfig";
-import { ref, push, onValue } from "firebase/database";
