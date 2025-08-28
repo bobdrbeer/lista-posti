@@ -1,34 +1,17 @@
-// Import the functions you need from the SDKs you need
-
 import { initializeApp } from "firebase/app";
-
-// TODO: Add SDKs for Firebase products that you want to use
-
-// https://firebase.google.com/docs/web/setup#available-libraries
-
-
-// Your web app's Firebase configuration
+import { getDatabase } from "firebase/database";
 
 const firebaseConfig = {
-
-  apiKey: "AIzaSyBhIurUf6-cFTq9toA11V8ss8W80yXWA4c",
-
-  authDomain: "lista-posti.firebaseapp.com",
-
-  projectId: "lista-posti",
-
-  storageBucket: "lista-posti.firebasestorage.app",
-
-  messagingSenderId: "205182260418",
-
-  appId: "1:205182260418:web:cf1d8b0e60727be1ac575b"
-
+  apiKey: "LA_TUA_API_KEY",
+  authDomain: "IL_TUO_PROJECT_ID.firebaseapp.com",
+  databaseURL: "https://IL_TUO_PROJECT_ID.firebaseio.com",
+  projectId: "IL_TUO_PROJECT_ID",
+  storageBucket: "IL_TUO_PROJECT_ID.appspot.com",
+  messagingSenderId: "IL_TUO_MESSAGING_SENDER_ID",
+  appId: "IL_TUO_APP_ID"
 };
 
-
-// Initialize Firebase
-
 const app = initializeApp(firebaseConfig);
+const database = getDatabase(app);
 
-import { database } from "./firebaseConfig";
-import { ref, push, onValue } from "firebase/database";
+export { database };
