@@ -10,11 +10,12 @@ function App() {
   const [categories, setCategories] = useState(["Toscana", "Lazio", "Italia estera"]);
   const [selectedFilter, setSelectedFilter] = useState("");
 
-  // 🔹 Carica i posti da Firebase in tempo reale
+  // 🔹 Carica i posti in tempo reale da Firebase
   useEffect(() => {
     const itemsRef = ref(database, "items");
     onValue(itemsRef, (snapshot) => {
       const data = snapshot.val();
+      console.log("Dati dal DB:", data); // 🔹 Debug
       const loadedItems = data ? Object.values(data) : [];
       setItems(loadedItems);
     });
@@ -22,7 +23,10 @@ function App() {
 
   // 🔹 Aggiunge un nuovo posto
   const handleAdd = () => {
-    if (!input || !category) return;
+    if (!input || !category) {
+      alert("Inserisci nome e categoria!");
+      return;
+    }
     const itemsRef = ref(database, "items");
     push(itemsRef, { name: input, category });
     if (!categories.includes(category)) setCategories([...categories, category]);
@@ -30,14 +34,15 @@ function App() {
     setCategory("");
   };
 
-  // 🔹 Aggiunge una nuova categoria dinamica
+  // 🔹 Aggiunge una nuova categoria
   const handleAddCategory = () => {
     if (category && !categories.includes(category)) {
       setCategories([...categories, category]);
+      setCategory("");
     }
   };
 
-  // 🔹 Filtra i posti in base alla categoria
+  // 🔹 Filtra i posti per categoria
   const filteredItems = selectedFilter
     ? items.filter((item) => item.category === selectedFilter)
     : items;
@@ -65,6 +70,7 @@ function App() {
         <button onClick={handleAdd} style={{ padding: 8, marginRight: 10 }}>
           Aggiungi posto
         </button>
+
         <button onClick={handleAddCategory} style={{ padding: 8 }}>
           Aggiungi categoria
         </button>
